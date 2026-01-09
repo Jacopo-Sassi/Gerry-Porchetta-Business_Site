@@ -1,23 +1,26 @@
-import { Leaf, Flame, Award } from 'lucide-react';
-import SectionTitle from './SectionTitle';
+import { Leaf, Flame, Award } from "lucide-react";
+import SectionTitle from "./SectionTitle";
 
 export default function Storia() {
   const values = [
     {
       icon: Leaf,
-      title: 'Ingredienti Pregiati',
-      description: 'Selezioniamo solo maiali di razze italiane pregiate, cresciuti nel rispetto della tradizione e del benessere animale.'
+      title: "Ingredienti Pregiati",
+      description:
+        "Selezioniamo solo maiali di razze italiane pregiate, cresciuti nel rispetto della tradizione e del benessere animale.",
     },
     {
       icon: Flame,
-      title: 'Cottura a Legna',
-      description: 'La cottura lenta a legna per oltre 5 ore garantisce quella croccantezza inconfondibile e un sapore autentico.'
+      title: "Cottura a Legna",
+      description:
+        "La cottura lenta a legna per oltre 5 ore garantisce quella croccantezza inconfondibile e un sapore autentico.",
     },
     {
       icon: Award,
-      title: 'Ricetta Tradizionale',
-      description: 'Finocchietto selvatico, rosmarino, aglio e sale marino: la ricetta della nonna, tramandata con passione dal 1952.'
-    }
+      title: "Ricetta Tradizionale",
+      description:
+        "Finocchietto selvatico, rosmarino, aglio e sale marino: la ricetta della nonna, tramandata con passione dal 1952.",
+    },
   ];
 
   return (
@@ -32,22 +35,30 @@ export default function Storia() {
           <div className="order-2 md:order-1">
             <div className="prose prose-lg text-stone-700 space-y-6">
               <p className="text-xl leading-relaxed">
-                Nel cuore dell'Italia, dove le colline incontrano il cielo e i sapori
-                raccontano storie di generazioni, nasce la nostra porchetta.
+                Da due generazioni la famiglia Longobardi seleziona, alleva e
+                commercia i migliori capi suini: ci occupiamo solo di carni
+                pregiate, seguendo la ricetta tramandata in famiglia per la
+                lavorazione della porchetta.
               </p>
               <p className="leading-relaxed">
-                Era il <strong>1952</strong> quando nonno Giuseppe accese per la prima volta
-                il forno a legna che ancora oggi riscalda il nostro laboratorio. Con le mani
-                sapienti di chi conosce ogni segreto della carne, creò quella che sarebbe
-                diventata la ricetta di famiglia: una porchetta dalla cotenna dorata e
-                croccante, il cui aroma riempie ancora le strade del nostro paese.
+                Quella che vi proponiamo è una porchetta preparata secondo{" "}
+                <strong>la ricetta tradizionale italiana</strong>, di
+                antichissima origine: si narra risalga al popolo dei Latini,
+                vissuto in Italia prima dell’arrivo dei Romani e degli Etruschi
+                e il nome stesso “porchetta” sembra nascere dalla consuetudine
+                di prediligere per la preparazione della porchetta la carne più
+                tenera delle giovani femmine. Nata per il sacrificio agli Dei,
+                oggi la porchetta è apprezzata da tutti gli umani: non a caso il
+                New York Times l’ha inserita tra i cinque cibi più buoni al
+                mondo!
               </p>
               <p className="leading-relaxed">
-                Oggi, dopo <strong>tre generazioni</strong>, continuiamo a svegliarci prima
-                dell'alba per preparare ogni porchetta con la stessa cura, la stessa passione,
-                lo stesso amore per la tradizione. Ogni maiale viene selezionato personalmente,
-                ogni erba aromatica raccolta al momento giusto, ogni cottura monitorata con
-                l'attenzione di un maestro artigiano.
+                Oggi, dopo <strong>tre generazioni</strong>, continuiamo a
+                svegliarci prima dell'alba per preparare ogni porchetta con la
+                stessa cura, la stessa passione, lo stesso amore per la
+                tradizione. Ogni maiale viene selezionato personalmente, ogni
+                erba aromatica raccolta al momento giusto, ogni cottura
+                monitorata con l'attenzione di un maestro artigiano.
               </p>
             </div>
           </div>
@@ -77,8 +88,12 @@ export default function Storia() {
               <div className="bg-gradient-to-br from-amber-100 to-amber-50 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <value.icon className="text-amber-600" size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-stone-800 mb-4">{value.title}</h3>
-              <p className="text-stone-600 leading-relaxed">{value.description}</p>
+              <h3 className="text-2xl font-bold text-stone-800 mb-4">
+                {value.title}
+              </h3>
+              <p className="text-stone-600 leading-relaxed">
+                {value.description}
+              </p>
             </div>
           ))}
         </div>

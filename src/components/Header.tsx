@@ -66,14 +66,14 @@ export default function Header({ onCartOpen, cartItemCount }: HeaderProps) {
                     isScrolled ? "text-stone-800" : "text-white drop-shadow-lg"
                   }`}
                 >
-                  Porchetta Tradizionale
+                  Maestri Dell'Arte Della Porchetta
                 </h1>
                 <p
                   className={`text-xs transition-colors ${
                     isScrolled ? "text-amber-600" : "text-amber-300"
                   }`}
                 >
-                  Dal 1952
+                  Dal Busto alla braciola, Fino Al Prosciutto
                 </p>
               </div>
             </button>
