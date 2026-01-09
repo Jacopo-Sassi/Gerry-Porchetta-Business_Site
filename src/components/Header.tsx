@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { ShoppingCart, Menu as MenuIcon, X } from 'lucide-react';
-import { CartItem } from '../lib/supabase';
 
 interface HeaderProps {
   onCartOpen: () => void;

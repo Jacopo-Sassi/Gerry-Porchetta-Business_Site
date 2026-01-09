@@ -1,6 +1,7 @@
-interface ButtonProps {
+import React, { ButtonHTMLAttributes } from 'react';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  onClick?: () => void;
   variant?: 'primary' | 'secondary';
   size?: 'md' | 'lg';
   className?: string;
@@ -8,10 +9,10 @@ interface ButtonProps {
 
 export default function Button({
   children,
-  onClick,
   variant = 'primary',
   size = 'md',
-  className = ''
+  className = '',
+  ...props // include type, onClick, disabled, ecc.
 }: ButtonProps) {
   const baseStyles = 'font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl';
 
@@ -27,8 +28,8 @@ export default function Button({
 
   return (
     <button
-      onClick={onClick}
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className} rounded-full`}
+      {...props} // passa tutti i props HTML standard
     >
       {children}
     </button>

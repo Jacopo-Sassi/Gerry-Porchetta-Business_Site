@@ -1,13 +1,57 @@
 import { useState, useEffect } from 'react';
-import { ShoppingCart, Plus } from 'lucide-react';
-import { supabase, Product, CartItem } from '../lib/supabase';
+import { Plus } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import Button from './Button';
+
+// Definiamo i tipi
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image_url: string;
+  available: boolean;
+  weight_based: boolean;
+  created_at: string;
+}
+
+interface CartItem extends Product {
+  cartQuantity: number;
+  cartWeight?: number;
+}
 
 interface MenuProps {
   onCartUpdate: (items: CartItem[]) => void;
   cartItems: CartItem[];
 }
+
+// Array mock di prodotti
+const MOCK_PRODUCTS: Product[] = [
+  {
+    id: '1',
+    name: 'Panino Prosciutto',
+    description: 'Panino artigianale con prosciutto e formaggio.',
+    price: 5.5,
+    category: 'panini',
+    image_url: '/images/panino.jpg',
+    available: true,
+    weight_based: false,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: '2',
+    name: 'Porchetta al Taglio',
+    description: 'Porchetta succulenta a fette, pronta da gustare.',
+    price: 8.0,
+    category: 'al_taglio',
+    image_url: '/images/porchetta.jpg',
+    available: true,
+    weight_based: true,
+    created_at: new Date().toISOString(),
+  },
+  // Aggiungi altri prodotti mock se vuoi
+];
 
 export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
   const [products, setProducts] = useState<Product[]>([]);
@@ -23,25 +67,20 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
   ];
 
   useEffect(() => {
+    // Simuliamo fetch dal server
+    const fetchProducts = async () => {
+      try {
+        await new Promise(resolve => setTimeout(resolve, 500)); // simulazione delay
+        setProducts(MOCK_PRODUCTS.filter(p => p.available));
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchProducts();
   }, []);
-
-  const fetchProducts = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('products')
-        .select('*')
-        .eq('available', true)
-        .order('category', { ascending: true });
-
-      if (error) throw error;
-      setProducts(data || []);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const addToCart = (product: Product) => {
     const existingItem = cartItems.find(item => item.id === product.id);
