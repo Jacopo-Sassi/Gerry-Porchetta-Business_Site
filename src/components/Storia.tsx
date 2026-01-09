@@ -1,0 +1,88 @@
+import { Leaf, Flame, Award } from 'lucide-react';
+import SectionTitle from './SectionTitle';
+
+export default function Storia() {
+  const values = [
+    {
+      icon: Leaf,
+      title: 'Ingredienti Pregiati',
+      description: 'Selezioniamo solo maiali di razze italiane pregiate, cresciuti nel rispetto della tradizione e del benessere animale.'
+    },
+    {
+      icon: Flame,
+      title: 'Cottura a Legna',
+      description: 'La cottura lenta a legna per oltre 5 ore garantisce quella croccantezza inconfondibile e un sapore autentico.'
+    },
+    {
+      icon: Award,
+      title: 'Ricetta Tradizionale',
+      description: 'Finocchietto selvatico, rosmarino, aglio e sale marino: la ricetta della nonna, tramandata con passione dal 1952.'
+    }
+  ];
+
+  return (
+    <section id="storia" className="py-24 bg-stone-50">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <SectionTitle
+          title="La Nostra Storia"
+          subtitle="Una tradizione di famiglia che profuma di casa, di focolare, di autenticità"
+        />
+
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+          <div className="order-2 md:order-1">
+            <div className="prose prose-lg text-stone-700 space-y-6">
+              <p className="text-xl leading-relaxed">
+                Nel cuore dell'Italia, dove le colline incontrano il cielo e i sapori
+                raccontano storie di generazioni, nasce la nostra porchetta.
+              </p>
+              <p className="leading-relaxed">
+                Era il <strong>1952</strong> quando nonno Giuseppe accese per la prima volta
+                il forno a legna che ancora oggi riscalda il nostro laboratorio. Con le mani
+                sapienti di chi conosce ogni segreto della carne, creò quella che sarebbe
+                diventata la ricetta di famiglia: una porchetta dalla cotenna dorata e
+                croccante, il cui aroma riempie ancora le strade del nostro paese.
+              </p>
+              <p className="leading-relaxed">
+                Oggi, dopo <strong>tre generazioni</strong>, continuiamo a svegliarci prima
+                dell'alba per preparare ogni porchetta con la stessa cura, la stessa passione,
+                lo stesso amore per la tradizione. Ogni maiale viene selezionato personalmente,
+                ogni erba aromatica raccolta al momento giusto, ogni cottura monitorata con
+                l'attenzione di un maestro artigiano.
+              </p>
+            </div>
+          </div>
+
+          <div className="order-1 md:order-2 relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+              <img
+                src="https://images.pexels.com/photos/1878866/pexels-photo-1878866.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Laboratorio artigianale"
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            </div>
+            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-4 border-amber-400">
+              <p className="text-5xl font-bold text-amber-600">70+</p>
+              <p className="text-stone-600 font-semibold">Anni di Tradizione</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {values.map((value, index) => (
+            <div
+              key={index}
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-amber-500"
+            >
+              <div className="bg-gradient-to-br from-amber-100 to-amber-50 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <value.icon className="text-amber-600" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-stone-800 mb-4">{value.title}</h3>
+              <p className="text-stone-600 leading-relaxed">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
