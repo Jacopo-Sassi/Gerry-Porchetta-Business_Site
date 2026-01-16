@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Plus } from 'lucide-react';
-import SectionTitle from './SectionTitle';
-import Button from './Button';
+import { useState, useEffect } from "react";
+import { Plus } from "lucide-react";
+import SectionTitle from "./SectionTitle";
+import Button from "./Button";
 
 // Definiamo i tipi
 interface Product {
@@ -29,23 +29,12 @@ interface MenuProps {
 // Array mock di prodotti
 const MOCK_PRODUCTS: Product[] = [
   {
-    id: '1',
-    name: 'Panino Prosciutto',
-    description: 'Panino artigianale con prosciutto e formaggio.',
-    price: 5.5,
-    category: 'panini',
-    image_url: '/images/panino.jpg',
-    available: true,
-    weight_based: false,
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: '2',
-    name: 'Porchetta al Taglio',
-    description: 'Porchetta succulenta a fette, pronta da gustare.',
+    id: "1",
+    name: "Porchetta al Taglio",
+    description: "Porchetta succulenta a fette, pronta da gustare.",
     price: 8.0,
-    category: 'al_taglio',
-    image_url: '/images/porchetta.jpg',
+    category: "al_taglio",
+    image_url: "/src/assets/images/card-1.jpeg",
     available: true,
     weight_based: true,
     created_at: new Date().toISOString(),
@@ -56,24 +45,21 @@ const MOCK_PRODUCTS: Product[] = [
 export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const categories = [
-    { id: 'all', name: 'Tutti', emoji: '🍽️' },
-    { id: 'panini', name: 'Panini', emoji: '🥖' },
-    { id: 'al_taglio', name: 'Al Taglio', emoji: '🔪' },
-    { id: 'piatti', name: 'Piatti', emoji: '🍴' },
-    { id: 'eventi', name: 'Eventi & Catering', emoji: '🎉' }
+    { id: "all", name: "Tutti", emoji: "🍽️" },
+    { id: "al_taglio", name: "Al Taglio", emoji: "🔪" },
   ];
 
   useEffect(() => {
     // Simuliamo fetch dal server
     const fetchProducts = async () => {
       try {
-        await new Promise(resolve => setTimeout(resolve, 500)); // simulazione delay
-        setProducts(MOCK_PRODUCTS.filter(p => p.available));
+        await new Promise((resolve) => setTimeout(resolve, 500)); // simulazione delay
+        setProducts(MOCK_PRODUCTS.filter((p) => p.available));
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
       } finally {
         setLoading(false);
       }
@@ -83,10 +69,10 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
   }, []);
 
   const addToCart = (product: Product) => {
-    const existingItem = cartItems.find(item => item.id === product.id);
+    const existingItem = cartItems.find((item) => item.id === product.id);
 
     if (existingItem) {
-      const updatedCart = cartItems.map(item =>
+      const updatedCart = cartItems.map((item) =>
         item.id === product.id
           ? { ...item, cartQuantity: item.cartQuantity + 1 }
           : item
@@ -97,12 +83,13 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
     }
   };
 
-  const filteredProducts = selectedCategory === 'all'
-    ? products
-    : products.filter(p => p.category === selectedCategory);
+  const filteredProducts =
+    selectedCategory === "all"
+      ? products
+      : products.filter((p) => p.category === selectedCategory);
 
   const getCartQuantity = (productId: string) => {
-    const item = cartItems.find(i => i.id === productId);
+    const item = cartItems.find((i) => i.id === productId);
     return item ? item.cartQuantity : 0;
   };
 
@@ -125,14 +112,14 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
         />
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categories.map(category => (
+          {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 selectedCategory === category.id
-                  ? 'bg-amber-600 text-white shadow-lg scale-105'
-                  : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
+                  ? "bg-amber-600 text-white shadow-lg scale-105"
+                  : "bg-stone-100 text-stone-700 hover:bg-stone-200"
               }`}
             >
               <span className="mr-2">{category.emoji}</span>
@@ -142,7 +129,7 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map(product => (
+          {filteredProducts.map((product) => (
             <div
               key={product.id}
               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-stone-100 hover:-translate-y-2"
@@ -162,10 +149,14 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
 
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-stone-800">{product.name}</h3>
+                  <h3 className="text-xl font-bold text-stone-800">
+                    {product.name}
+                  </h3>
                   <span className="text-2xl font-bold text-amber-600">
                     €{product.price.toFixed(2)}
-                    {product.weight_based && <span className="text-sm">/kg</span>}
+                    {product.weight_based && (
+                      <span className="text-sm">/kg</span>
+                    )}
                   </span>
                 </div>
 
