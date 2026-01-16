@@ -53,12 +53,11 @@ export default function Storia() {
                 mondo!
               </p>
               <p className="leading-relaxed">
-                Oggi, dopo <strong>tre generazioni</strong>, continuiamo a
-                svegliarci prima dell'alba per preparare ogni porchetta con la
-                stessa cura, la stessa passione, lo stesso amore per la
-                tradizione. Ogni maiale viene selezionato personalmente, ogni
-                erba aromatica raccolta al momento giusto, ogni cottura
-                monitorata con l'attenzione di un maestro artigiano.
+                A Mugnano del Cardinale e in provincia di Avellino, Porchetta
+                Longobardi offre una scelta ampia di prodotti, come busti di
+                porchetta, carne di maiale, filetto di suino, porchetta arrosto,
+                porchetta artigianale, porchetta di bevagna, salumi di suino
+                nero, tronchetto di porchetta.
               </p>
             </div>
           </div>

@@ -57,9 +57,7 @@ export default function Header({ onCartOpen, cartItemCount }: HeaderProps) {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="flex items-center gap-2 group"
             >
-              <span className="text-3xl transform group-hover:scale-110 transition-transform">
-                
-              </span>
+              <span className="text-3xl transform group-hover:scale-110 transition-transform"></span>
               <div>
                 <h1
                   className={`text-xl font-bold tracking-tight transition-colors ${
@@ -73,7 +71,7 @@ export default function Header({ onCartOpen, cartItemCount }: HeaderProps) {
                     isScrolled ? "text-amber-600" : "text-amber-300"
                   }`}
                 >
-                  Dal Busto alla braciola, Fino Al Prosciutto
+                  Dal Busto Alla Braciola, Fino Al Prosciutto
                 </p>
               </div>
             </button>
