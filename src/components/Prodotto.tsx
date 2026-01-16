@@ -1,31 +1,38 @@
-import SectionTitle from './SectionTitle';
+import SectionTitle from "./SectionTitle";
 
 export default function Prodotto() {
   const features = [
     {
-      image: 'https://images.pexels.com/photos/9986228/pexels-photo-9986228.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'La Croccantezza che Risuona',
-      description: 'La cotenna perfettamente dorata, croccante sotto i denti, è il risultato di ore di cottura lenta e sapiente. Ogni morso è una sinfonia di consistenze.'
+      image: "/src/assets/images/description-1.jpeg",
+      title: "La Croccantezza che Risuona",
+      description:
+        "La cotenna perfettamente dorata, croccante sotto i denti, è il risultato di ore di cottura lenta e sapiente. Ogni morso è una sinfonia di consistenze.",
     },
     {
-      image: 'https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: "/src/assets/images/description-2.jpeg",
       title: "L'Aroma che Invade la Stanza",
-      description: 'Finocchietto selvatico, rosmarino fresco e aglio si fondono in un profumo inebriante che risveglia i sensi e anticipa il piacere del gusto.'
+      description:
+        "Finocchietto selvatico, rosmarino fresco e aglio si fondono in un profumo inebriante che risveglia i sensi e anticipa il piacere del gusto.",
     },
     {
-      image: 'https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'La Carne Tenera e Succosa',
-      description: 'Sotto la crosta dorata si cela una carne morbida, succosa, scioglievole. Ogni strato racconta la maestria della nostra lavorazione artigianale.'
+      image: "/src/assets/images/description-3.jpeg",
+      title: "La Carne Tenera e Succosa",
+      description:
+        "Sotto la crosta dorata si cela una carne morbida, succosa, scioglievole. Ogni strato racconta la maestria della nostra lavorazione artigianale.",
     },
     {
-      image: 'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Gli Ingredienti della Tradizione',
-      description: 'Sale marino di Sicilia, pepe nero macinato fresco, erbe raccolte a mano. Ogni ingrediente è scelto per esaltare, mai per nascondere.'
-    }
+      image: "/src/assets/images/description-4.jpeg",
+      title: "Gli Ingredienti della Tradizione",
+      description:
+        "Sale marino di Sicilia, pepe nero macinato fresco, erbe raccolte a mano. Ogni ingrediente è scelto per esaltare, mai per nascondere.",
+    },
   ];
 
   return (
-    <section id="prodotto" className="py-24 bg-gradient-to-b from-white to-stone-50">
+    <section
+      id="prodotto"
+      className="py-24 bg-gradient-to-b from-white to-stone-50"
+    >
       <div className="container mx-auto px-4 max-w-7xl">
         <SectionTitle
           title="L'Arte della Porchetta"
@@ -58,11 +65,14 @@ export default function Prodotto() {
         </div>
 
         <div className="mt-20 bg-gradient-to-r from-amber-600 to-amber-700 rounded-3xl p-12 text-white text-center shadow-2xl">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">Il Segreto della Perfezione</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+            Il Segreto della Perfezione
+          </h3>
           <p className="text-xl text-amber-50 max-w-3xl mx-auto leading-relaxed">
-            Ogni porchetta viene cotta per oltre 5 ore nel nostro forno a legna di quercia.
-            La temperatura, l'umidità, la rotazione: ogni dettaglio è controllato con la
-            precisione di un orologiaio svizzero e la passione di un artista italiano.
+            Ogni porchetta viene cotta per oltre 5 ore nel nostro forno a legna
+            di quercia. La temperatura, l'umidità, la rotazione: ogni dettaglio
+            è controllato con la precisione di un orologiaio svizzero e la
+            passione di un artista italiano.
           </p>
         </div>
       </div>

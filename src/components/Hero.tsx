@@ -11,8 +11,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage:
-            "url(https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1920)",
+          backgroundImage: "url('/src/assets/images/hero.jpeg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "brightness(0.6)",

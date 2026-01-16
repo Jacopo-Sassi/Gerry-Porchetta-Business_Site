@@ -65,7 +65,7 @@ export default function Storia() {
           <div className="order-1 md:order-2 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
               <img
-                src="https://images.pexels.com/photos/1878866/pexels-photo-1878866.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="src/assets/images/story.jpeg"
                 alt="Laboratorio artigianale"
                 className="w-full h-[500px] object-cover"
               />
