@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
-import { ShoppingCart, Menu as MenuIcon, X } from "lucide-react";
+import { Menu as MenuIcon, X } from "lucide-react";
 
-interface HeaderProps {
-  onCartOpen: () => void;
-  cartItemCount: number;
-}
-
-export default function Header({ onCartOpen, cartItemCount }: HeaderProps) {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -27,7 +22,7 @@ export default function Header({ onCartOpen, cartItemCount }: HeaderProps) {
     },
     { label: "La Nostra Storia", href: "#storia" },
     { label: "Il Prodotto", href: "#prodotto" },
-    { label: "Menu", href: "#menu" },
+    { label: "Ricette", href: "#ricette" },
     { label: "Eventi", href: "#eventi" },
   ];
 
@@ -57,7 +52,6 @@ export default function Header({ onCartOpen, cartItemCount }: HeaderProps) {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="flex items-center gap-2 group"
             >
-              <span className="text-3xl transform group-hover:scale-110 transition-transform"></span>
               <div>
                 <h1
                   className={`text-xl font-bold tracking-tight transition-colors ${
@@ -92,34 +86,16 @@ export default function Header({ onCartOpen, cartItemCount }: HeaderProps) {
               ))}
             </nav>
 
-            <div className="flex items-center gap-4">
-              <button
-                onClick={onCartOpen}
-                className={`relative p-3 rounded-full transition-all hover:scale-110 ${
-                  isScrolled
-                    ? "bg-amber-600 text-white hover:bg-amber-700"
-                    : "bg-white/20 backdrop-blur-sm text-white hover:bg-white/30"
-                }`}
-              >
-                <ShoppingCart size={24} />
-                {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
-                    {cartItemCount}
-                  </span>
-                )}
-              </button>
-
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`md:hidden p-3 rounded-full transition-all ${
-                  isScrolled
-                    ? "bg-stone-100 text-stone-800"
-                    : "bg-white/20 backdrop-blur-sm text-white"
-                }`}
-              >
-                {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
-              </button>
-            </div>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`md:hidden p-3 rounded-full transition-all ${
+                isScrolled
+                  ? "bg-stone-100 text-stone-800"
+                  : "bg-white/20 backdrop-blur-sm text-white"
+              }`}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+            </button>
           </div>
         </div>
       </header>

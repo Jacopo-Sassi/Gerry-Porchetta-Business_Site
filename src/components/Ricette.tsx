@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Plus } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
 
-// Definiamo i tipi
+// Tipi
 interface Product {
   id: string;
   name: string;
@@ -16,47 +15,38 @@ interface Product {
   created_at: string;
 }
 
-interface CartItem extends Product {
-  cartQuantity: number;
-  cartWeight?: number;
-}
-
-interface MenuProps {
-  onCartUpdate: (items: CartItem[]) => void;
-  cartItems: CartItem[];
-}
-
-// Array mock di prodotti
+// Mock prodotti
 const MOCK_PRODUCTS: Product[] = [
   {
     id: "1",
     name: "Porchetta al Taglio",
     description: "Porchetta succulenta a fette, pronta da gustare.",
     price: 8.0,
-    category: "al_taglio",
+    category: "antipasti",
     image_url: "/src/assets/images/card-1.jpeg",
     available: true,
     weight_based: true,
     created_at: new Date().toISOString(),
   },
-  // Aggiungi altri prodotti mock se vuoi
 ];
 
-export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
+export default function Ricette() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const categories = [
     { id: "all", name: "Tutti", emoji: "🍽️" },
-    { id: "al_taglio", name: "Al Taglio", emoji: "🔪" },
+    { id: "antipasti", name: "Antipasti", emoji: "🥗" },
+    { id: "panini_gourmet", name: "Panini Gourmet", emoji: "🥪" },
+    { id: "primi_piatti", name: "Primi Piatti", emoji: "🍲" },
+    { id: "secondi_piatti", name: "Secondi Piatti", emoji: "🍖" },
   ];
 
   useEffect(() => {
-    // Simuliamo fetch dal server
     const fetchProducts = async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 500)); // simulazione delay
+        await new Promise((resolve) => setTimeout(resolve, 500));
         setProducts(MOCK_PRODUCTS.filter((p) => p.available));
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -68,34 +58,14 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
     fetchProducts();
   }, []);
 
-  const addToCart = (product: Product) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
-
-    if (existingItem) {
-      const updatedCart = cartItems.map((item) =>
-        item.id === product.id
-          ? { ...item, cartQuantity: item.cartQuantity + 1 }
-          : item
-      );
-      onCartUpdate(updatedCart);
-    } else {
-      onCartUpdate([...cartItems, { ...product, cartQuantity: 1 }]);
-    }
-  };
-
   const filteredProducts =
     selectedCategory === "all"
       ? products
       : products.filter((p) => p.category === selectedCategory);
 
-  const getCartQuantity = (productId: string) => {
-    const item = cartItems.find((i) => i.id === productId);
-    return item ? item.cartQuantity : 0;
-  };
-
   if (loading) {
     return (
-      <section id="menu" className="py-24 bg-white">
+      <section id="ricette" className="py-24 bg-white">
         <div className="container mx-auto px-4 max-w-7xl text-center">
           <p className="text-2xl text-stone-600">Caricamento menu...</p>
         </div>
@@ -104,10 +74,10 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
   }
 
   return (
-    <section id="menu" className="py-24 bg-white">
+    <section id="ricette" className="py-24 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
         <SectionTitle
-          title="Il Nostro Menu"
+          title="Le Nostre Ricette"
           subtitle="Dalla tradizione alla tua tavola: scegli tra panini artigianali, porchetta al taglio e piatti pronti"
         />
 
@@ -140,11 +110,6 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
                   alt={product.name}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
-                {getCartQuantity(product.id) > 0 && (
-                  <div className="absolute top-4 right-4 bg-amber-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold shadow-lg">
-                    {getCartQuantity(product.id)}
-                  </div>
-                )}
               </div>
 
               <div className="p-6">
@@ -165,12 +130,10 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
                 </p>
 
                 <Button
-                  onClick={() => addToCart(product)}
                   variant="primary"
-                  className="w-full flex items-center justify-center gap-2"
+                  className="w-full"
                 >
-                  <Plus size={20} />
-                  Aggiungi al Carrello
+                  Scopri di più
                 </Button>
               </div>
             </div>
@@ -180,7 +143,7 @@ export default function Menu({ onCartUpdate, cartItems }: MenuProps) {
         {filteredProducts.length === 0 && (
           <div className="text-center py-12">
             <p className="text-xl text-stone-600">
-              Nessun prodotto disponibile in questa categoria
+              Nessuna ricetta disponibile in questa categoria
             </p>
           </div>
         )}
