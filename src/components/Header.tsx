@@ -58,14 +58,14 @@ export default function Header() {
                     isScrolled ? "text-stone-800" : "text-white drop-shadow-lg"
                   }`}
                 >
-                  Maestri Dell'Arte Della Porchetta
+                  Porchetta Longobardi
                 </h1>
                 <p
                   className={`text-xs transition-colors ${
                     isScrolled ? "text-amber-600" : "text-amber-300"
                   }`}
                 >
-                  Dal Busto Alla Braciola, Fino Al Prosciutto
+                  Maestri Dell'Arte Della Porchetta
                 </p>
               </div>
             </button>

@@ -25,7 +25,7 @@ const MOCK_PRODUCTS: Product[] = [
     category: "antipasti",
     image_url: "/src/assets/images/card-1.jpeg",
     available: true,
-    weight_based: true,
+    weight_based: false,
     created_at: new Date().toISOString(),
   },
 ];

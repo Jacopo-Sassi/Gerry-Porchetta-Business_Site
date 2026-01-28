@@ -66,9 +66,9 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold">Via della Tradizione, 52</p>
+                  <p className="font-semibold">Via Giuseppe Garibaldi, 95</p>
                   <p className="text-sm text-stone-500">
-                    01100 Viterbo (VT), Italia
+                    83027 Mugnano del Cardinale (AV), Italia
                   </p>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function Footer() {
             <h4 className="text-lg font-bold text-white mb-4">📍 Dove Siamo</h4>
             <div className="aspect-video w-full rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47733.89288648651!2d12.0978!3d42.4173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f1ff4a2b4b8ed%3A0x40b82c3688c7720!2sViterbo%2C%20VT!5e0!3m2!1sit!2sit!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.6735245251066!2d14.637920576589476!3d40.94285102345005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bb575e91d6029%3A0x7a31e70f56a6e350!2sPorchetta%20Longobardi!5e1!3m2!1sit!2sit!4v1769629634857!5m2!1sit!2sit"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -123,7 +123,7 @@ export default function Footer() {
 
           <div className="text-center text-stone-500">
             <p>
-              &copy; {new Date().getFullYear()} Porchetta Tradizionale. Tutti i
+              &copy; {new Date().getFullYear()} Porchetta Longobardi. Tutti i
               diritti riservati.
             </p>
             <p className="mt-2 text-sm">
