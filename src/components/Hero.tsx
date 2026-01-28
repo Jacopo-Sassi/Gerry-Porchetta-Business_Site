@@ -2,8 +2,8 @@ import { ChevronDown } from "lucide-react";
 import Button from "./Button";
 
 export default function Hero() {
-  const scrollToMenu = () => {
-    document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToRicette = () => {
+    document.getElementById("ricette")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -34,8 +34,8 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button size="lg" onClick={scrollToMenu}>
-            Ordina la Tua Prelibatezza
+          <Button size="lg" onClick={scrollToRicette}>
+            Scopri le ricette
           </Button>
           <Button
             size="lg"
