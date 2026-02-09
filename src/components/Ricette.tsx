@@ -7,7 +7,6 @@ interface Product {
   id: string;
   name: string;
   description: string;
-  price: number;
   category: string;
   image_url: string;
   available: boolean;
@@ -19,11 +18,11 @@ interface Product {
 const MOCK_PRODUCTS: Product[] = [
   {
     id: "1",
-    name: "Porchetta al Taglio",
-    description: "Porchetta succulenta a fette, pronta da gustare.",
-    price: 8.0,
+    name: " Porchetta al Gel di Limone",
+    description:
+      "Porchetta al gel di limone: un'esplosione di sapori che unisce la succulenza della porchetta alla freschezza del gel di limone.",
     category: "antipasti",
-    image_url: "/src/assets/images/card-1.jpeg",
+    image_url: "/src/assets/images/porchetta-gel-al-limone.jpeg",
     available: true,
     weight_based: false,
     created_at: new Date().toISOString(),
@@ -118,7 +117,6 @@ export default function Ricette() {
                     {product.name}
                   </h3>
                   <span className="text-2xl font-bold text-amber-600">
-                    €{product.price.toFixed(2)}
                     {product.weight_based && (
                       <span className="text-sm">/kg</span>
                     )}
@@ -129,10 +127,7 @@ export default function Ricette() {
                   {product.description}
                 </p>
 
-                <Button
-                  variant="primary"
-                  className="w-full"
-                >
+                <Button variant="primary" className="w-full">
                   Scopri di più
                 </Button>
               </div>
