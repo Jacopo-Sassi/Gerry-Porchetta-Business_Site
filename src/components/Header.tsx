@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Menu as MenuIcon, X } from "lucide-react";
+import logo from "../assets/images/logo.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,28 +53,29 @@ export default function Header() {
       >
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex items-center justify-between">
-            {/* LOGO */}
-            <button
-              onClick={() => handleNavClick("#home")}
-              className="flex items-center gap-2 group"
-            >
-              <div>
-                <h1
-                  className={`text-xl font-bold tracking-tight transition-colors ${
-                    isScrolled ? "text-stone-800" : "text-white drop-shadow-lg"
-                  }`}
-                >
-                  Porchetta Longobardi
-                </h1>
-                <p
-                  className={`text-xs transition-colors ${
-                    isScrolled ? "text-amber-600" : "text-amber-300"
-                  }`}
-                >
-                  Maestri Dell'Arte Della Porchetta
-                </p>
-              </div>
-            </button>
+           {/* LOGO */}
+<button
+  onClick={() => handleNavClick("#home")}
+  className="flex items-center gap-3 group"
+>
+  <img src={logo} alt="Logo" className="h-10 w-auto" />
+  <div>
+    <h1
+      className={`text-xl font-bold tracking-tight transition-colors ${
+        isScrolled ? "text-stone-800" : "text-white drop-shadow-lg"
+      }`}
+    >
+      Porchetta Longobardi
+    </h1>
+    <p
+      className={`text-xs transition-colors ${
+        isScrolled ? "text-amber-600" : "text-amber-300"
+      }`}
+    >
+      Maestri Dell'Arte Della Porchetta
+    </p>
+  </div>
+</button>
 
             {/* NAV DESKTOP */}
             <nav className="hidden md:flex items-center gap-8">
