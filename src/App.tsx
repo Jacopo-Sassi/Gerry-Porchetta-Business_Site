@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Storia from './components/Storia';
-import Prodotto from './components/Prodotto';
-import Gallery from './components/Gallery';
-import Footer from './components/Footer';
-import Ricette from './components/Ricette';
-import RicettaDettaglio from './pages/RicettaDettaglio';
-import ScrollToTop from './components/ScrollToTop';
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Storia from "./components/Storia";
+import Prodotto from "./components/Prodotto";
+import Gallery from "./components/Gallery";
+import Footer from "./components/Footer";
+import Ricette from "./components/Ricette";
+import RicettaDettaglio from "./pages/RicettaDettaglio";
+import ScrollToTop from "./components/ScrollToTop";
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -23,7 +23,9 @@ function Home() {
     const tryScroll = (attempts = 0) => {
       const el = document.getElementById(sectionId);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        const offset = sectionId === "eventi" ? 750 : 0;
+        const top = el.getBoundingClientRect().top + window.scrollY + offset;
+        window.scrollTo({ top, behavior: "smooth" });
       } else if (attempts < 10) {
         setTimeout(() => tryScroll(attempts + 1), 100);
       }
