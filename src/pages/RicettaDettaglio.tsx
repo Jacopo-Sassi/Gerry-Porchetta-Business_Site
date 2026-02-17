@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { PRODUCTS } from "../data/products";
 
@@ -21,7 +21,6 @@ export default function RicettaDettaglio() {
 
   return (
     <section className="bg-white min-h-screen">
-
       {/* HERO IMMAGINE */}
       <div className="relative h-[60vh] w-full overflow-hidden">
         <img
@@ -40,20 +39,6 @@ export default function RicettaDettaglio() {
 
       {/* CONTENUTO */}
       <div className="container mx-auto px-6 max-w-4xl py-20">
-
-        {/* Breadcrumb */}
-        <div className="mb-8 text-sm text-stone-500">
-          <Link to="/" className="hover:text-amber-600">
-            Home
-          </Link>
-          <span className="mx-2">/</span>
-          <Link to="/#ricette" className="hover:text-amber-600">
-            Ricette
-          </Link>
-          <span className="mx-2">/</span>
-          <span>{product.name}</span>
-        </div>
-
         {/* Descrizione */}
         <div className="prose prose-lg max-w-none text-stone-700 leading-relaxed">
           <p>{product.description}</p>
@@ -64,7 +49,6 @@ export default function RicettaDettaglio() {
             autentica e ricca di sapore.
           </p>
         </div>
-
       </div>
     </section>
   );
