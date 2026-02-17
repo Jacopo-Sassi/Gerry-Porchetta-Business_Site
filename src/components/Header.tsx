@@ -58,7 +58,7 @@ export default function Header() {
   onClick={() => handleNavClick("#home")}
   className="flex items-center gap-3 group"
 >
-  <img src={logo} alt="Logo" className="h-20 w-20 rounded-full object-contain" />
+  <img src={logo} alt="Logo" className="h-12 w-12 rounded-full object-contain" />
   <div>
     <h1
       className={`text-xl font-bold tracking-tight transition-colors ${
