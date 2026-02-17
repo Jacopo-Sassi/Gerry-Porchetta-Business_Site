@@ -1,35 +1,12 @@
 import { useState, useEffect } from "react";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
-
-// Tipi
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  image_url: string;
-  available: boolean;
-  weight_based: boolean;
-  created_at: string;
-}
-
-// Mock prodotti
-const MOCK_PRODUCTS: Product[] = [
-  {
-    id: "1",
-    name: " Porchetta al Gel di Limone",
-    description:
-      "Porchetta al gel di limone: un'esplosione di sapori che unisce la succulenza della porchetta alla freschezza del gel di limone.",
-    category: "antipasti",
-    image_url: "/src/assets/images/porchetta-gel-al-limone.jpeg",
-    available: true,
-    weight_based: false,
-    created_at: new Date().toISOString(),
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { PRODUCTS, Product } from "../data/products";
 
 export default function Ricette() {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -46,7 +23,7 @@ export default function Ricette() {
     const fetchProducts = async () => {
       try {
         await new Promise((resolve) => setTimeout(resolve, 500));
-        setProducts(MOCK_PRODUCTS.filter((p) => p.available));
+        setProducts(PRODUCTS.filter((p) => p.available));
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -112,22 +89,19 @@ export default function Ricette() {
               </div>
 
               <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-stone-800">
-                    {product.name}
-                  </h3>
-                  <span className="text-2xl font-bold text-amber-600">
-                    {product.weight_based && (
-                      <span className="text-sm">/kg</span>
-                    )}
-                  </span>
-                </div>
+                <h3 className="text-xl font-bold text-stone-800 mb-3">
+                  {product.name}
+                </h3>
 
                 <p className="text-stone-600 mb-6 leading-relaxed line-clamp-3">
                   {product.description}
                 </p>
 
-                <Button variant="primary" className="w-full">
+                <Button
+                  variant="primary"
+                  className="w-full"
+                  onClick={() => navigate(`/ricette/${product.id}`)}
+                >
                   Scopri di più
                 </Button>
               </div>

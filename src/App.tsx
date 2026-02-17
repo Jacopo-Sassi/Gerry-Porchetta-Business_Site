@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Storia from './components/Storia';
@@ -5,32 +6,34 @@ import Prodotto from './components/Prodotto';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import Ricette from './components/Ricette';
+import RicettaDettaglio from './pages/RicettaDettaglio';
 
-// Definiamo i tipi per le ricette
-export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  image_url: string;
-  available: boolean;
-  weight_based: boolean;
-  created_at: string;
-}
-
-function App() {
-
+function Home() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header/>
+    <>
       <Hero />
       <Storia />
       <Prodotto />
-      <Ricette/>
+      <Ricette />
       <Gallery />
-      <Footer />
-    </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-white">
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ricette/:id" element={<RicettaDettaglio />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
