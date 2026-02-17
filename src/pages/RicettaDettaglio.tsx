@@ -21,7 +21,7 @@ export default function RicettaDettaglio() {
 
   return (
     <section className="bg-white min-h-screen">
-      {/* HERO IMMAGINE */}
+      {/* HERO */}
       <div className="relative h-[60vh] w-full overflow-hidden">
         <img
           src={product.image_url}
@@ -33,21 +33,62 @@ export default function RicettaDettaglio() {
             <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
               {product.name}
             </h1>
+            <p className="text-lg text-white/90 mt-2">
+              Categoria: {product.category.toUpperCase()}
+            </p>
           </div>
         </div>
       </div>
 
       {/* CONTENUTO */}
-      <div className="container mx-auto px-6 max-w-4xl py-20">
-        {/* Descrizione */}
+      <div className="container mx-auto px-6 max-w-4xl py-20 space-y-16">
+        {/* DESCRIZIONE */}
         <div className="prose prose-lg max-w-none text-stone-700 leading-relaxed">
           <p>{product.description}</p>
+        </div>
 
-          <p>
-            Questa ricetta nasce dalla tradizione artigianale e valorizza
-            ingredienti selezionati con cura, per offrire un'esperienza
-            autentica e ricca di sapore.
+        {/* INGREDIENTI */}
+        <div>
+          <h2 className="text-3xl font-semibold text-stone-800 mb-6">
+            Ingredienti
+          </h2>
+          <ul className="list-disc list-inside space-y-2 text-stone-700">
+            {product.ingredients.map((ingredient, idx) => (
+              <li key={idx}>{ingredient}</li>
+            ))}
+          </ul>
+        </div>
+
+        {/* PREPARAZIONE */}
+        <div>
+          <h2 className="text-3xl font-semibold text-stone-800 mb-6">
+            Preparazione
+          </h2>
+          <ol className="list-decimal list-inside space-y-3 text-stone-700">
+            {product.steps.map((step, idx) => (
+              <li key={idx}>{step}</li>
+            ))}
+          </ol>
+        </div>
+
+        {/* NOTE DELLO CHEF */}
+        {product.chefNotes && (
+          <div className="bg-amber-50 p-6 rounded-xl border-l-4 border-amber-400">
+            <h3 className="text-2xl font-semibold text-amber-800 mb-2">
+              Note dello Chef
+            </h3>
+            <p className="text-stone-700">{product.chefNotes}</p>
+          </div>
+        )}
+
+        {/* CALL TO ACTION */}
+        <div className="text-center mt-12">
+          <p className="text-stone-700 mb-4">
+            Vuoi scoprire altre ricette gourmet e segreti dello chef?
           </p>
+          <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition">
+            Scopri Ricette Premium
+          </button>
         </div>
       </div>
     </section>
