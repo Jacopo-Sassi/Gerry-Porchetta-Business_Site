@@ -4,7 +4,7 @@ import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { PRODUCTS, Product } from "../data/products";
 
-export default function Ricette() {
+export default function Ricette({ id }: { id?: string }) {
   const navigate = useNavigate();
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -41,7 +41,7 @@ export default function Ricette() {
 
   if (loading) {
     return (
-      <section id="ricette" className="py-24 bg-white">
+      <section id={id || "ricette"} className="py-24 bg-white">
         <div className="container mx-auto px-4 max-w-7xl text-center">
           <p className="text-2xl text-stone-600">Caricamento menu...</p>
         </div>
@@ -50,7 +50,7 @@ export default function Ricette() {
   }
 
   return (
-    <section id="ricette" className="py-24 bg-white">
+    <section id={id || "ricette"} className="py-24 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
         <SectionTitle
           title="Le Nostre Ricette"

@@ -1,7 +1,7 @@
 import { Leaf, Flame, Award } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 
-export default function Storia() {
+export default function Storia({ id }: { id?: string })  {
   const values = [
     {
       icon: Leaf,
@@ -24,7 +24,7 @@ export default function Storia() {
   ];
 
   return (
-    <section id="storia" className="py-24 bg-stone-50">
+     <section id={id || "storia"} className="py-24 bg-stone-50">
       <div className="container mx-auto px-4 max-w-7xl">
         <SectionTitle
           title="La Nostra Storia"

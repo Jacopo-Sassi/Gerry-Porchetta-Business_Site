@@ -1,39 +1,43 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu as MenuIcon, X } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    {
-      label: "Home",
-      href: "#home",
-      action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
-    },
+    { label: "Home", href: "#home" },
     { label: "La Nostra Storia", href: "#storia" },
     { label: "Il Prodotto", href: "#prodotto" },
     { label: "Ricette", href: "#ricette" },
     { label: "Eventi", href: "#eventi" },
   ];
 
-  const handleNavClick = (href: string, action?: () => void) => {
-    if (action) {
-      action();
+  const handleNavClick = (href: string) => {
+    const sectionId = href.substring(1);
+
+    if (location.pathname !== "/") {
+      // se siamo in un'altra pagina, navighiamo alla home con stato
+      navigate("/", { state: { scrollTo: sectionId } });
     } else {
-      document
-        .getElementById(href.substring(1))
-        ?.scrollIntoView({ behavior: "smooth" });
+      // se siamo già sulla home scrolliamo
+      if (sectionId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      }
     }
+
     setIsMobileMenuOpen(false);
   };
 
@@ -48,8 +52,9 @@ export default function Header() {
       >
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex items-center justify-between">
+            {/* LOGO */}
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={() => handleNavClick("#home")}
               className="flex items-center gap-2 group"
             >
               <div>
@@ -70,11 +75,12 @@ export default function Header() {
               </div>
             </button>
 
+            {/* NAV DESKTOP */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
-                  onClick={() => handleNavClick(link.href, link.action)}
+                  onClick={() => handleNavClick(link.href)}
                   className={`font-semibold transition-all hover:scale-105 ${
                     isScrolled
                       ? "text-stone-700 hover:text-amber-600"
@@ -86,6 +92,7 @@ export default function Header() {
               ))}
             </nav>
 
+            {/* MOBILE MENU */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`md:hidden p-3 rounded-full transition-all ${
@@ -110,7 +117,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <button
                 key={link.href}
-                onClick={() => handleNavClick(link.href, link.action)}
+                onClick={() => handleNavClick(link.href)}
                 className="block w-full text-left py-3 px-4 text-stone-800 font-semibold hover:bg-amber-50 hover:text-amber-600 rounded-lg transition-colors"
               >
                 {link.label}

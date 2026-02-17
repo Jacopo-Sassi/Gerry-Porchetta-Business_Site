@@ -8,17 +8,32 @@ import Footer from './components/Footer';
 import Ricette from './components/Ricette';
 import RicettaDettaglio from './pages/RicettaDettaglio';
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 50);
+      }
+    }
+  }, [location]);
+
   return (
     <>
-      <Hero />
-      <Storia />
-      <Prodotto />
-      <Ricette />
-      <Gallery />
+      <Hero id="home" />
+      <Storia id="storia" />
+      <Prodotto id="prodotto" />
+      <Ricette id="ricette" />
+      <Gallery id="eventi" />
     </>
   );
 }
+
 
 function App() {
   return (

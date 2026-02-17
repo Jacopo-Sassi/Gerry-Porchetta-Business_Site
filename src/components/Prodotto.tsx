@@ -1,6 +1,6 @@
 import SectionTitle from "./SectionTitle";
 
-export default function Prodotto() {
+export default function Prodotto({ id }: { id?: string }) {
   const features = [
     {
       image: "/src/assets/images/description-1.jpeg",
@@ -30,7 +30,7 @@ export default function Prodotto() {
 
   return (
     <section
-      id="prodotto"
+      id={id || "prodotto"}
       className="py-24 bg-gradient-to-b from-white to-stone-50"
     >
       <div className="container mx-auto px-4 max-w-7xl">

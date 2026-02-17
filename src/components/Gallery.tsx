@@ -2,7 +2,7 @@ import { Calendar, Users, PartyPopper } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
 
-export default function Gallery() {
+export default function Gallery({ id }: { id?: string }) {
   const galleryImages = [
     {
       url: "/src/assets/images/event-1.jpeg",
@@ -65,7 +65,7 @@ export default function Gallery() {
 
   return (
     <section
-      id="eventi"
+      id={id || "eventi"}
       className="py-24 bg-gradient-to-b from-stone-50 to-white"
     >
       <div className="container mx-auto px-4 max-w-7xl">

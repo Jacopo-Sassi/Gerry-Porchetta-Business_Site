@@ -1,13 +1,13 @@
 import { ChevronDown } from "lucide-react";
 import Button from "./Button";
 
-export default function Hero() {
+export default function Hero({ id }: { id?: string }) {
   const scrollToRicette = () => {
     document.getElementById("ricette")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id={id || "home"} className="relative h-screen flex items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 z-0"
         style={{
