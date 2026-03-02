@@ -21,7 +21,7 @@ export const PRODUCTS: Product[] = [
     name: "Porchetta al Gel di Limone",
     description:
       "Un'esplosione di sapori che unisce la succulenza della porchetta alla freschezza del gel di limone.",
-    category: "Antipasti",
+    category: "antipasti",
     image_url: "/src/assets/images/porchetta-gel-al-limone.jpeg",
     available: true,
     weight_based: false,
@@ -49,7 +49,7 @@ export const PRODUCTS: Product[] = [
     id: "2",
     name: "Ciabatta Romana con Porchetta, Cicoria e Nocciole",
     description:
-      "Un incontro tra tradizione e innovazione: porchetta croccante, cicoria ripassata e nocciole tostate in ciabatta romana artigianale. Ispirata alla grande cucina italiana.",
+      "Un incontro tra tradizione e innovazione: porchetta croccante, cicoria ripassata e nocciole tostate in ciabatta romana artigianale.",
     category: "panini_gourmet",
     image_url: "/src/assets/images/ciabatta-romana-porchetta-cicoria.jpeg",
     available: true,
@@ -112,7 +112,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Fette spesse di porchetta scottate in padella, servite con salsa verde alle erbe fresche e patate arrosto croccanti.",
     category: "secondi_piatti",
-    image_url: "/src/assets/images/porchetta--salsa-verde.jpeg",
+    image_url: "/src/assets/images/porchetta-salsa-verde.jpeg",
     available: true,
     weight_based: true,
     created_at: new Date().toISOString(),
