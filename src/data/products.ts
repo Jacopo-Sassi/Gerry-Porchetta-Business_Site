@@ -20,7 +20,7 @@ export const PRODUCTS: Product[] = [
     id: "1",
     name: "Tartare di Porchetta con Gelo al Limone",
     description:
-      "Un antipasto gourmet che celebra il contrasto tra dolcezza, sapidità e freschezza",
+      "Un antipasto gourmet che celebra il contrasto tra dolcezza, sapidità e freschezza.",
     category: "Antipasti",
     image_url: "/src/assets/images/porchetta-gel-al-limone.jpeg",
     available: true,
