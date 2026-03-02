@@ -13,10 +13,10 @@ export default function Ricette({ id }: { id?: string }) {
 
   const categories = [
     { id: "all", name: "Tutti", emoji: "🍽️" },
-    { id: "antipasti", name: "Antipasti", emoji: "🥗" },
-    { id: "panini_gourmet", name: "Panini Gourmet", emoji: "🥪" },
-    { id: "primi_piatti", name: "Primi Piatti", emoji: "🍲" },
-    { id: "secondi_piatti", name: "Secondi Piatti", emoji: "🍖" },
+    { id: "Antipasti", name: "Antipasti", emoji: "🥗" },
+    { id: "Panini Gourmet", name: "Panini Gourmet", emoji: "🥪" },
+    { id: "Primi Piatti", name: "Primi Piatti", emoji: "🍲" },
+    { id: "Secondi Piatti", name: "Secondi Piatti", emoji: "🍖" },
   ];
 
   useEffect(() => {

@@ -21,7 +21,7 @@ export const PRODUCTS: Product[] = [
     name: "Porchetta al Gel di Limone",
     description:
       "Un'esplosione di sapori che unisce la succulenza della porchetta alla freschezza del gel di limone.",
-    category: "antipasti",
+    category: "Antipasti",
     image_url: "/src/assets/images/porchetta-gel-al-limone.jpeg",
     available: true,
     weight_based: false,
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     name: "Ciabatta Romana con Porchetta, Cicoria e Nocciole",
     description:
       "Un incontro tra tradizione e innovazione: porchetta croccante, cicoria ripassata e nocciole tostate in ciabatta romana artigianale.",
-    category: "panini_gourmet",
+    category: "Panini Gourmet",
     image_url: "/src/assets/images/ciabatta-romana-porchetta-cicoria.jpeg",
     available: true,
     weight_based: false,
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     name: "Gnocchi con Ragù Bianco di Porchetta e Finocchietto",
     description:
       "Un primo piatto avvolgente dove la porchetta diventa protagonista in un ragù bianco profumato al finocchietto selvatico.",
-    category: "primi_piatti",
+    category: "Primi Piatti",
     image_url: "/src/assets/images/gnocchi-porchetta.jpeg",
     available: true,
     weight_based: false,
@@ -111,7 +111,7 @@ export const PRODUCTS: Product[] = [
     name: "Porchetta Scottata con Salsa Verde e Patate Arrosto",
     description:
       "Fette spesse di porchetta scottate in padella, servite con salsa verde alle erbe fresche e patate arrosto croccanti.",
-    category: "secondi_piatti",
+    category: "Secondi Piatti",
     image_url: "/src/assets/images/porchetta-salsa-verde.jpeg",
     available: true,
     weight_based: true,
