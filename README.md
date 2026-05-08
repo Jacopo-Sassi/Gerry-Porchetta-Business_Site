@@ -24,11 +24,20 @@ Sezioni narrative (Hero, Storia) Presentazione prodotti Menu organizzato per cat
 
 👉 Risultato: un sito che non è solo bello, ma funziona
 
-🧱 Tech Stack React (Hooks) TypeScript Architettura component-based State management locale essenziale
+🧱 Tech Stack 
+
+React (Hooks) 
+
+TypeScript 
+
+Architettura component-based 
+
+State management locale essenziale
 
 👉 Scelta intenzionale: niente overengineering, focus su performance e manutenibilità
 
 🧩 Architettura 
+
 App.tsx 
 ├── Header 
 ├── Hero 
