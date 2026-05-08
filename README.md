@@ -28,7 +28,37 @@ Sezioni narrative (Hero, Storia) Presentazione prodotti Menu organizzato per cat
 
 👉 Scelta intenzionale: niente overengineering, focus su performance e manutenibilità
 
-🧩 Architettura App.tsx ├── Header ├── Hero ├── Storia ├── Prodotto ├── Menu ├── Gallery └── Footer Pattern utilizzati Separazione per responsabilità (componenti indipendenti) Struttura modulare e scalabile Gestione stato minima e mirata ✨ Feature principali UI moderna e responsive Navigazione fluida Struttura chiara per contenuti Ottimizzazione della user experience Codice leggibile e mantenibile ⚠️ Trade-off (voluti)
+🧩 Architettura 
+App.tsx 
+├── Header 
+├── Hero 
+├── Storia 
+├── Prodotto 
+├── Menu 
+├── Gallery 
+└── Footer 
+
+Pattern utilizzati 
+
+Separazione per responsabilità (componenti indipendenti) 
+
+Struttura modulare e scalabile 
+
+Gestione stato minima e mirata 
+
+✨ Feature principali 
+
+UI moderna e responsive 
+
+Navigazione fluida 
+
+Struttura chiara per contenuti 
+
+Ottimizzazione della user experience 
+
+Codice leggibile e mantenibile 
+
+⚠️ Trade-off (voluti)
 
 Questo progetto non è un e-commerce, per scelta strategica:
 
